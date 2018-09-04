@@ -6,29 +6,64 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/default.css">
 </head>
 <body>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        #container{
-            padding: 50px 80px;
-            border: 2px dashed #ddd;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 200px;
-            flex-direction: column;
-        }
+
+
     </style>
-    <div id="container">
-        <span id="pickfiles">上传文件</span>
-        <p>文件大小不能超过 40MB</p>
+    <div class="page">
+        <aside>
+            <div class="newSong">
+                新建歌曲
+            </div>
+            <ul class="songList">
+                <li>歌曲1</li>
+                <li class="active">歌曲2</li>
+                <li>歌曲3</li>
+                <li>歌曲4</li>
+                <li>歌曲5</li>
+                <li>歌曲6</li>
+                <li>歌曲7</li>
+                <li>歌曲8</li>
+                <li>歌曲9</li>
+                <li>歌曲10</li>
+            </ul>
+            <div class="uploadArea">
+                <div id="container" class="draggable">
+                    <div id="pickfiles" class="clickable">
+                        <span >上传文件</span>
+                        <p>文件大小不能超过 40MB</p>
+                    </div>
+                </div>
+                <div id="uploadStatus"></div>
+            </div>
+        </aside>
+        <main>
+            <form>
+                <div class="row">
+                    <label >歌曲
+                        <input type="text">
+                    </label>
+                </div>
+                <div class="row">
+                    <label for="">歌手
+                        <input type="text">
+                    </label>
+                </div>
+                <div class="row">
+                    <label for="">外链
+                        <input type="text">
+                    </label>
+                </div>
+                <div class="row">
+                    <button type="submit">保存</button>
+                </div>
+            </form>
+        </main>
     </div>
-    <div id="uploadStatus"></div>
+
     <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
     <script src="../node_modules/plupload/js/moxie.js"></script>
     <script src="../node_modules/plupload/js/plupload.min.js"></script>
