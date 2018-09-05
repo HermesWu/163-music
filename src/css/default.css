@@ -37,7 +37,7 @@ body{
 .page > aside > .newSong.active{
     background-color: #d4d4d4;
 }
-.page > aside > .songList{
+.page > aside > #songListContainer {
     flex-grow: 1;
     text-align: left;
     border-top: 1px solid #999;
@@ -54,11 +54,11 @@ body{
     flex-direction: column;
     cursor: pointer;
 }
-.page > aside > .songList > li {
+.page > aside > #songListContainer > .songList > li {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
-.page > aside > .songList > li.active {
+.page > aside > #songListContainer > .songList > li.active {
     background-color: #d4d4d4;
 }
 .page > main{
@@ -74,7 +74,7 @@ body{
 }
 .page > main > .editArea > form > .row > button{
     margin-left: 28px;
-    padding: 3px;
+    padding: 5px 7px;
     border-radius: 6px;
 }
 .page > main > .editArea > form > .row > label{

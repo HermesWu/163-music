@@ -1,7 +1,8 @@
 {
     let view = {
-        el: '.page .songList',
+        el: '.page #songListContainer',
         template: `
+            <ul class="songList">
             <li>歌曲1</li>
             <li class="active">歌曲2</li>
             <li>歌曲3</li>
@@ -12,6 +13,7 @@
             <li>歌曲8</li>
             <li>歌曲9</li>
             <li>歌曲10</li>
+            </ul>
         `,
         render(data){
             $(this.el).html(this.template)
