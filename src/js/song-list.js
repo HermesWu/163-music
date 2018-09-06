@@ -36,6 +36,18 @@
             this.view = view
             this.model = model
             this.view.render(this.model.data)
+            this.bindEventHub()
+            this.getAllSongs()
+
+        },
+        clearActive(){
+            $(this.view.el).find('.active').removeClass('active')
+        },
+        getAllSongs(){
+            this.model.find().then(()=>{
+                this.view.render(this.model.data)})
+        },
+        bindEventHub(){
             window.eventHub.on('upload',()=>{
                 this.clearActive()
             })
@@ -43,12 +55,7 @@
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
             })
-            this.model.find().then(()=>{
-                this.view.render(this.model.data)})
-        },
-        clearActive(){
-            $(this.view.el).find('.active').removeClass('active')
-        },
+        }
     }
     controller.init(view, model)
 }
