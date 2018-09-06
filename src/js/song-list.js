@@ -19,6 +19,16 @@
     let model = {
         data: {
             songs:[]
+        },
+        find(){
+            var query = new AV.Query('Song');
+            return query.find().then((songList) => {
+                this.data.songs = songList.map((song)=>{
+                    // let {id, attributes} = song
+                    // this.data.songs.push({id, ...attributes})
+                    return {id: song.id, ...song.attributes}
+                })
+            })
         }
     }
     let controller = {
@@ -30,11 +40,11 @@
                 this.clearActive()
             })
             window.eventHub.on('created', (data)=>{
-                console.log('songList,created后拿到的',data)
                 this.model.data.songs.push(data)
-                console.log(this.model.data)
                 this.view.render(this.model.data)
             })
+            this.model.find().then(()=>{
+                this.view.render(this.model.data)})
         },
         clearActive(){
             $(this.view.el).find('.active').removeClass('active')
