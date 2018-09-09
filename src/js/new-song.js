@@ -29,17 +29,17 @@
             this.bindEventHub()
         },
         bindEventHub(){
-            window.eventHub.on('upload', (data)=>{
-                this.view.active()
-            })
             window.eventHub.on('select', (data) => {
                 this.view.deActive()
+            })
+            window.eventHub.on('new', (data) => {
+                this.view.active()
             })
         },
         bindEvent(){
             this.view.$el.on('click', (e) => {
                 this.view.active()
-                window.eventHub.emit('new', e.currentTarget)
+                window.eventHub.emit('new', {})
             })
         }
     }

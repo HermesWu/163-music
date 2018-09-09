@@ -6,7 +6,7 @@
             this.render({})
         },
         template: `
-         <h2 class="title">新建歌曲</h2>
+         
         <div class="editArea">
             <form>
                 <div class="row">
@@ -38,6 +38,11 @@
             })
 
             $(this.el).html(html)
+            if(data.id){
+                $(this.el).prepend('<h2 class="title">编辑歌曲</h2>')
+            }else{
+                $(this.el).prepend('<h2 class="title">新建歌曲</h2>')
+            }
         }
     }
     let model = {
@@ -86,17 +91,16 @@
         },
         bindEventHub(){
             window.eventHub.on('select', (data) => {
-                console.log('我收到了id',data.id)
                 this.model.data = data
-                this.view.render({})
                 this.view.render(this.model.data)
             })
-            window.eventHub.on('upload', (data)=>{
-                this.view.render(data)
-            })
             window.eventHub.on('new', (data)=>{
-                console.log('--------- song form 收到新建 ---------')
-                console.log(data)
+                if(this.model.data.id){
+                    this.model.data = {}
+                }else{
+                    Object.assign(this.model.data, data)
+                }
+                this.view.render(this.model.data)
             })
         }
     }

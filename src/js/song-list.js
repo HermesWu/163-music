@@ -19,9 +19,9 @@
             $(li).addClass('active')
                 .siblings('.active').removeClass('active')
         },
-        deActive(){
-            $(this.el).find('li').removeClass('active')
-        }
+        clearActive(){
+            $(this.el).find('.active').removeClass('active')
+        },
     }
     let model = {
         data: {
@@ -46,9 +46,6 @@
             this.bindEvent()
 
         },
-        clearActive(){
-            $(this.view.el).find('.active').removeClass('active')
-        },
         getAllSongs(){
             return this.model.find().then(()=>{
                 this.view.render(this.model.data)})
@@ -61,12 +58,6 @@
                 console.log(songId)
                 let songs = this.model.data.songs
                 let data = ''
-                // songs.map( (song) => {
-                //     console.log('song', song)
-                //     if(song.id === songId) {
-                //         data = song
-                //     }
-                // })
                 for(let i = 0; i < songs.length; i++){
                     if(songs[i].id === songId){
                         console.log('song', songs[i])
@@ -78,15 +69,12 @@
             })
         },
         bindEventHub(){
-            window.eventHub.on('upload',()=>{
-                this.clearActive()
+            window.eventHub.on('new',()=>{
+                this.view.clearActive()
             })
             window.eventHub.on('created', (data)=>{
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
-            })
-            window.eventHub.on('new', (data) => {
-                this.view.deActive()
             })
         }
     }
