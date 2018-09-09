@@ -61,12 +61,19 @@
                 console.log(songId)
                 let songs = this.model.data.songs
                 let data = ''
-                songs.map( (song) => {
-                    console.log('song', song)
-                    if(song.id = songId) {
-                        data = song
+                // songs.map( (song) => {
+                //     console.log('song', song)
+                //     if(song.id === songId) {
+                //         data = song
+                //     }
+                // })
+                for(let i = 0; i < songs.length; i++){
+                    if(songs[i].id === songId){
+                        console.log('song', songs[i])
+                        data = songs[i]
+                        break
                     }
-                })
+                }
                 window.eventHub.emit('select', JSON.parse(JSON.stringify(data)) )
             })
         },

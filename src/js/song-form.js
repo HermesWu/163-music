@@ -86,14 +86,17 @@
         },
         bindEventHub(){
             window.eventHub.on('select', (data) => {
-                console.log('我收到了id',data)
+                console.log('我收到了id',data.id)
                 this.model.data = data
                 this.view.render({})
                 this.view.render(this.model.data)
             })
             window.eventHub.on('upload', (data)=>{
-                console.log('--------- song form ---------')
                 this.view.render(data)
+            })
+            window.eventHub.on('new', (data)=>{
+                console.log('--------- song form 收到新建 ---------')
+                console.log(data)
             })
         }
     }
