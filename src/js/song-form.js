@@ -63,10 +63,8 @@
             this.view.init()
             this.view.render(this.model.data)
             this.bindEvent()
-            window.eventHub.on('upload', (data)=>{
-                console.log('--------- song form ---------')
-                this.view.render(data)
-            })
+            this.bindEventHub()
+
         },
 
         bindEvent(){
@@ -84,6 +82,18 @@
                     let object = JSON.parse(string)
                     window.eventHub.emit('created', object)
                 })
+            })
+        },
+        bindEventHub(){
+            window.eventHub.on('select', (data) => {
+                console.log('我收到了id',data)
+                this.model.data = data
+                this.view.render({})
+                this.view.render(this.model.data)
+            })
+            window.eventHub.on('upload', (data)=>{
+                console.log('--------- song form ---------')
+                this.view.render(data)
             })
         }
     }
