@@ -14,6 +14,7 @@ body{
     display: flex;
     height: 100vh;
     padding: 20px;
+    overflow: hidden;
 }
 .bg{
     position: absolute;
@@ -54,6 +55,23 @@ body{
     flex-direction: column;
     cursor: pointer;
 }
+.page > aside > #songListContainer{
+    height: 100vh;
+    /*overflow: scroll;*/
+    overflow: hidden;
+    position: relative;
+
+}
+.page > aside > #songListContainer > .songList{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: -17px;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+}
 .page > aside > #songListContainer > .songList > li {
     padding: 10px;
     border-bottom: 1px solid #ddd;
@@ -62,6 +80,8 @@ body{
     background-color: #d4d4d4;
 }
 .page > main{
+    overflow: hidden;
+    z-index: 10;
     padding: 50px;
     flex-grow: 1;
     border: 1px solid #999;
