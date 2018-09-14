@@ -21,6 +21,7 @@ body{
 .m-home{
   height: p2v(63);
 }
+
 .m-hometop{
   background-color: #d43c33;
   height: p2v(64);
@@ -84,6 +85,7 @@ body{
     }
   }
   .m-main{
+    display: none;
     padding-top: p2v(20);
     .m-hot-songs{
       .hot-title{
@@ -162,6 +164,7 @@ body{
   }
 }
 .m-main-hot{
+  display: none;
   .m-title-img {
     display: flex;
     flex-direction: column;
@@ -232,4 +235,16 @@ body{
       }
     }
   }
+}
+.page-3{
+  display: none;
+}
+.page-1.active{
+  display: block;
+}
+.page-2.active{
+  display: block;
+}
+.page-3.active{
+  display: block;
 }

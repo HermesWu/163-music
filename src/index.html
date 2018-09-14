@@ -67,12 +67,12 @@
 
 </div>
 <div class="m-site-nav">
-    <ol class="tabItems">
-        <li class="active"><span>推荐音乐</span></li>
-        <li><span>热歌榜</span></li>
-        <li><span>搜索</span></li>
+    <ol id="siteTab" class="tabItems">
+        <li class="active" data-tab-name="page-1"><span>推荐音乐</span></li>
+        <li data-tab-name="page-2"><span>热歌榜</span></li>
+        <li data-tab-name="page-3"><span>搜索</span></li>
     </ol>
-    <div class="page-1 m-main" style="display:block">
+    <div class="page-1 m-main active">
         <div class="m-hot-songs">
             <h2 class="hot-title">推荐歌单</h2>
             <ol class="hot-lists">
@@ -190,7 +190,7 @@
         </div>
         <div class="m-footer"></div>
     </div>
-    <div class="page-2 m-main-hot" style="display:none">
+    <div class="page-2 m-main-hot" >
         <div class="m-title-img">
             <div class="m-hot-image"></div>
             <div class="m-hot-content">更新日期：<span>09月13号</span></div>
@@ -280,6 +280,12 @@
     </div>
     <div class="page-3">3333</div>
 </div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./js/event-hub.js"></script>
 <script src="./js/index.js"></script>
+<script src="./js/index/tab.js"></script>
+<script src="./js/index/page-1.js"></script>
+<script src="./js/index/page-2.js"></script>
+<script src="./js/index/page-3.js"></script>
 </body>
 </html>
