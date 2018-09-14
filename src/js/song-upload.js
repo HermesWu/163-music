@@ -29,11 +29,13 @@
                         });
                     },
                     'BeforeUpload': function(up, file) {
+                        window.eventHub.emit('beforeUpload')
                     },
                     'UploadProgress': function(up, file) {
                         uploadStatus.textContent = '上传中。。。'
                     },
                     'FileUploaded': function(up, file, info) {
+                        window.eventHub.emit('afterUpload')
                         uploadStatus.textContent = "上传完毕"
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);
